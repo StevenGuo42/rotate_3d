@@ -11,12 +11,25 @@ import os
 #     python demo.py images/000001.jpg 360
 #     python demo.py images/000001.jpg 45 500 700
 #
+#
+#             ^   y-axis
+#             |
+#         ....|.....
+#         :   |____:____>  x-axis
+#     img :   /    :
+#         :  /     :
+#         :./......:
+#          /
+#         v   z-axis
+#
+#   transformation order: translate => rot z => rot y => rot x 
+#
 # Parameters:
 #     img_path  : the path of image that you want rotated
 #     shape     : the ideal shape of input image, None for original size.
 #     theta     : the rotation around the x axis
 #     phi       : the rotation around the y axis
-#     gamma     : the rotation around the z axis (basically a 2D rotation)
+#     gamma     : the rotation around the z axis (basically a 2D rotation) 
 #     dx        : translation along the x axis
 #     dy        : translation along the y axis
 #     dz        : translation along the z axis (distance to the image)
@@ -42,16 +55,16 @@ if not os.path.isdir('output'):
     os.mkdir('output')
 
 # Iterate through rotation range
-for ang in xrange(0, rot_range):
+for ang in range(0, rot_range):
 
     # NOTE: Here we can change which angle, axis, shift
     
     """ Example of rotating an image along y-axis from 0 to 360 degree 
         with a 5 pixel shift in +X direction """
-    rotated_img = it.rotate_along_axis(phi = ang, dx = 5)
+    #rotated_img = it.rotate_along_axis(phi = ang, dx = 5)
 
     """ Example of rotating an image along yz-axis from 0 to 360 degree """
-    #rotated_img = it.rotate_along_axis(phi = ang, gamma = ang)
+    rotated_img = it.rotate_along_axis(phi = ang, gamma = 2*ang)
 
     """ Example of rotating an image along z-axis(Normal 2D) from 0 to 360 degree """
     #rotated_img = it.rotate_along_axis(gamma = ang)

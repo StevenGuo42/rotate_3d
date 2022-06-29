@@ -3,16 +3,16 @@
 ## Animation
 
 ![](example/rotate_x_dx5.gif)
-Rotate along X axis and translate 5 pixel along X axis
+Translate 5 pixel along +X axis then rotate along X axis 
 
 ![](example/rotate_xz.gif)
-Rotate along XZ axis
+Rotate along Z axis by t degrees then rotate along X axis
 
 ## Prerequisites
 
-- Linux
-- Python 2.7 with numpy
-- OpenCV 2.4.9
+- Python 3.*
+- numpy
+- OpenCV 2.* .*
 
 ## Usage
 
